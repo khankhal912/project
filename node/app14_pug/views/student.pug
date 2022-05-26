@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head 
+    title pugdemo 
+    body 
+    h4 Student Details 
+    p 
+        span Studentid #{studentid}
+        br
+        span StudentName #{studentname}
+        br
+        span StudentMarks #{studentmarks}
+        br
+    table(border="1")
+        tr  
+            th Name 
+            th Marks 
+        for s in subject 
+            tr 
+                td #{s.name}
+                td=s.marks        
+    include searchbox

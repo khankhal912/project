@@ -1,0 +1,18 @@
+<%for(var i=0;i<productt.length;i++){ %>
+<tr>
+    <td><%=i+201%></td>
+    <td><%=productt[i].productname%></td>
+    <td><%=productt[i].description%></td>
+    <td><%=productt[i].price%></td>
+    <!-- <td>
+        <a href="/update-product?id=<%=productt[i]._id%>">
+            <span><input type="button" value="update"></span>
+        </a>
+    </td>
+    <td>
+        <a href="#">
+            <span><input type="button" value="delete"></span>
+        </a>
+    </td> -->
+</tr>
+<%}%>

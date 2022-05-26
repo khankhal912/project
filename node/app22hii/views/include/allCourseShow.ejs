@@ -1,0 +1,31 @@
+<%for(var i=0;i<courseArr.length;i++){ %>
+    <tr>
+        <td>
+            <%=i+201%>
+        </td>
+        <td>
+            <%=courseArr[i].coursename%>
+        </td>
+        <td>
+            <%=courseArr[i].description%>
+        </td>
+        <td>
+            <%=courseArr[i].duration%>
+        </td>
+        <td>
+            <%=courseArr[i].fees%>
+        </td>
+        <td>
+            <!-- <a href="/cou/UPDATE_COURSE/"> -->
+            <a href="/cou/UPDATE_COURSE?cid=<%=courseArr[i]._id%>">
+                <!-- <a href="/cou/updateCourse"> -->
+                <span><input type="button" value="update"></span>
+            </a>
+        </td>
+        <td>
+            <a href="#">
+                <span><input type="button" value="delete"></span>
+            </a>
+        </td>
+    </tr>
+    <%}%>

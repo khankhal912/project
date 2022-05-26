@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+<style>
+    form {
+        margin: 0% 5% 5% 5%;
+        padding: 0% 5% 5% 5%;
+        border: 2px solid black;
+    }
+
+    .box {
+        text-align: center;
+        display: flex;
+    }
+
+    #info {
+        margin-left: 5%;
+    }
+</style>
+
+<body>
+
+    <h1> Skill Qode </h1>
+    <!-- main -->
+    <div id="header" style="text-align: center;">
+        <h1>Insert new product </h1>
+        <div class="box">
+            <div id="info">Date : <span id="date"></span> </div>
+        </div><br>
+        <hr><br>
+    </div>
+    <a href="/">All product</a>
+
+    <%-include('./include/form')%>
+    <!-- /main -->
+
+</body>
+<script>
+
+    function myDate() {
+        const nowDate = new Date;
+        const date = nowDate.getDate();
+        const month = nowDate.getMonth() + 1;
+        const year = nowDate.getFullYear();
+        const retDate = `${date}/${month}/${year}`;
+        return retDate;
+    }
+    document.getElementById("date").innerHTML = `${myDate()}`
+    console.log(myDate())
+</script>
+
+</html>

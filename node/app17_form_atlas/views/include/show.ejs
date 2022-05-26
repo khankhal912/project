@@ -1,0 +1,20 @@
+<%for(var i=0;i<coursee.length;i++){ %>
+<tr>
+    <td><%=i+201%></td>
+    <td><%=coursee[i].coursename%></td>
+    <td><%=coursee[i].description%></td>
+    <!-- <td>prerequisite</td> -->
+    <td><%=coursee[i].duration%></td>
+    <td><%=coursee[i].fees%></td>
+    <td>
+        <a href="/update-course?id=<%=coursee[i]._id%>">
+            <span><input type="button" value="update"></span>
+        </a>
+    </td>
+    <td>
+        <a href="#">
+            <span><input type="button" value="delete"></span>
+        </a>
+    </td>
+</tr>
+<%}%>

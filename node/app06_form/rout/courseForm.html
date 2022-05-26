@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+<style>
+    form {
+        margin: 0% 5% 5% 5%;
+        padding: 0% 5% 5% 5%;
+        border: 2px solid black;
+    }
+
+    .box {
+        text-align: center;
+        display: flex;
+    }
+
+    #info {
+        margin-left: 5%;
+    }
+</style>
+
+<body>
+
+    <h1> Skill Qode </h1>
+    <form method="post" action="/submitCourse">
+        <div id="header" style="text-align: center;">
+            <h1>Insert Courses </h1>
+            <div class="box">
+                <div id="info">Date : <span id="date"></span> </div>
+            </div><br>
+            <hr><br>
+        </div>
+
+        <div id="info">Course Name :
+            <input type="text" name="coursename" placeholder="Enter course name">
+        </div><br>
+
+        <div id="info">Description :
+            <input type="text" name="description" placeholder="Enter description">
+        </div><br>
+
+        <div id="info">prerequisite : 10th<input name="prerequisite.ssc" value="true" type="checkbox">
+            12th<input name="prerequisite.hsc" value="true" type="checkbox">
+            Bachelor<input name="prerequisite.bachelor" value=true type="checkbox"></div><br>
+
+        <div id="info">Duration :
+            <input type="number" name="duration" placeholder="Enter duration (in mounth)">
+        </div><br>
+        
+        <div id="info">Fees :
+            <input type="number" name="fees" placeholder="Enter fees">
+        </div><br>
+        <input id="info" type="submit" value="Submit"><br>
+        
+    </form>
+    <form method="post" action="/findCourse">
+        <div id="header" style="text-align: center;">
+            <h1>Find Courses </h1>
+            <hr><br>
+        </div>
+        <!-- <div id="info">key :
+            <input type="text" name="key" placeholder="Enter key">
+        </div><br> -->
+        <div id="info">Find ANY course :
+            <input type="text" name="value" placeholder="Enter courseName">
+            <input type="submit" value="find ANY">
+        </div><br>
+        <div id="info">Find ALL course :
+           <a href="/course/find"> <input type="button"  value="find ALL"></a>
+        </div>
+        
+    </form>
+</body>
+<script>
+
+    function myDate() {
+        const nowDate = new Date;
+        const date = nowDate.getDate();
+        const month = nowDate.getMonth() + 1;
+        const year = nowDate.getFullYear();
+        const retDate = `${date}/${month}/${year}`;
+        return retDate;
+    }
+    document.getElementById("date").innerHTML = `${myDate()}`
+    console.log(myDate())
+</script>
+
+</html>

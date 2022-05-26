@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+<style>
+    form {
+        margin: 0% 5% 5% 5%;
+        padding: 0% 5% 5% 5%;
+        border: 2px solid black;
+    }
+
+    .box {
+        text-align: center;
+        display: flex;
+    }
+
+    #info {
+        margin-left: 5%;
+    }
+</style>
+
+<body>
+
+    <h1> Skill Qode </h1>
+    <form method="post" action="/student/submitStudent">
+        <div id="header" style="text-align: center;">
+            <h1> Inquiry Form </h1>
+            <div class="box">
+                <div id="info">Date : <span id="date"></span> </div>
+            </div><br>
+            <hr><br>
+        </div>
+
+        <div class="box">
+            <div id="info">First name:
+                <input type="text" name="fname" placeholder="John">
+            </div>
+
+            <div id="info">Last name:
+                <input type="text" name="lname" placeholder="Doe">
+            </div>
+        </div><br>
+
+        <!-- <button type="submit">Login</button> -->
+
+        <div class="box">
+            <div id="info">DOB.
+                <input type="date" name="dob" placeholder="Date of birth">
+            </div><br>
+
+            <div id="info">Contact no.
+                <input type="number" name="phonee" placeholder="mobile_no">
+            </div>
+        </div><br>
+
+        <div id="info">Qualification
+            <input type="text" name="qualification" placeholder="Qualification">
+        </div><br>
+
+        <div id="info">e-mail id
+            <input type="email" name="email" placeholder="E-mail id">
+        </div><br>
+
+        <div id="info">Address
+            <input type="text" name="address" placeholder="Address">
+        </div><br>
+
+        <div class="box">
+            <div id="info">
+                <!-- <input type="text" name="courses" placeholder="Courses"> -->
+                <label for="Courses_name">Courses :</label>
+                <select name="courses" id="Courses_name">
+                    <option value="C">c</option>
+                    <option value="c++" selected>c++</option>
+                    <option value="js">js</option>
+
+                </select>
+            </div><br>
+
+            <div id="info">Inquiry for
+                <input type="text" name="inquiry_for" placeholder="Inquiry for">
+            </div>
+        </div><br>
+
+        <div id="info">Reference
+            <input type="text" name="reference" placeholder="Reference">
+        </div><br>
+
+        <div id="info">Notes
+            <input type="text" name="notes" placeholder="Notes">
+        </div><br>
+        <input id="info" type="submit" value="Submit">
+
+    </form>
+</body>
+<script>
+
+    function myDate() {
+        const nowDate = new Date;
+        const date = nowDate.getDate();
+        const month = nowDate.getMonth() + 1;
+        const year = nowDate.getFullYear();
+        const retDate = `${date}/${month}/${year}`;
+        return retDate;
+    }
+    document.getElementById("date").innerHTML = `${myDate()}`
+    console.log(myDate())
+</script>
+
+</html>
