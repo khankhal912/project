@@ -8,8 +8,8 @@ connectDB();
 
 //API
 
-rout.post("/signup",controller.signup);
-rout.get("/",controller.Alldatafind);
+// rout.post("/signup",controller.signup);
+// rout.get("/",controller.Alldatafind);
 rout.post("/login",controller.login);
 
 module.exports=rout;
