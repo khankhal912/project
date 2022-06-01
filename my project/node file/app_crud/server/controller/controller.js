@@ -1,4 +1,5 @@
 const userModel = require("../model/userModel");
+const bcrypt = require("bcryptjs");
 
 exports.signup = (async (req, res) => {
     console.log("hello..");
@@ -15,7 +16,7 @@ exports.signup = (async (req, res) => {
                 password:password,
                 Cpassword:Cpassword
             })
-            const db = await registerUser.seva().then(data=>console.log("insert Data..",data));
+            const db = await registerUser.save().then(res.send("insert Data.."));
             console.log(db);
         } else {
            res.send({"msg":"password not sema"});
@@ -35,19 +36,19 @@ exports.Alldatafind = (async(req,res)=>{
 exports.login = (async(req,res)=>{
     // console.log("hello login..");
     try{
-        const data = await userModel.find(req.body).then(console.log("find data")).catch(e=>console.log(e));
-        console.log(data)
-        if(data == ""){
+        const {email,password}=req.body;
+        if( !email || ! password ){
             res.json({"msg":"plz sigup.."});
-            console.log("jhjkkjk")
+
         }else{
-            const signup_email=data[0].email;
-            const login_email = req.body.email;
-            // console.log(signup_email);
+            const data = await userModel.findOne({email})
+            console.log(data)   
+
+            const isMatch = await bcrypt.compare(password,data.password);
+            console.log(isMatch)
             
-            
-            if(login_email === signup_email){
-                await userModel.create(req.body).then(res.send("login successfull")).catch(e=>console.log(e));
+            if(isMatch){
+                await userModel.find(req.body).then(res.send("login successfull")).catch(e=>console.log(e));
             }else{
                 res.json({"msg":"login fail...."})
             }
