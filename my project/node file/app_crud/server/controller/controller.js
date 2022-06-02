@@ -17,13 +17,14 @@ exports.signup = (async (req, res) => {
                 password: password,
                 Cpassword: Cpassword
             })
-            const db = await registerUser.save().then(res.send("insert Data.."));
+
+            const db = await registerUser.save().then(data=>console.log("insert Data..",data));
             console.log(db);
         } else {
             res.send("password not sema");
         }
     } catch (error) {
-        res.send("ERROR..");
+        res.status(400).send(error);
     }
 });
 exports.Alldatafind = (async (req, res) => {
@@ -58,5 +59,12 @@ exports.login = (async (req, res) => {
     }
     catch (error) {
         res.send("ERROR..")
+    }
+})
+exports.update = (async (req,res)=>{
+    try{
+
+    }catch(error){
+        res.status(400).send("ERROR")
     }
 })

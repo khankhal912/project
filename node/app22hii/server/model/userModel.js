@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     cpassword: { type: String, required: false },
     tokens: [{
         token: { type: String, required: false }
-    }],
+    }]
 })
 
 userSchema.methods.generateAuthToken = async function () {
@@ -42,7 +42,7 @@ userSchema.pre("save", async function (next) {
         this.cpassword = undefined
     }
     next()
-})
+})           
 var userModel = mongoose.model("userDetail", userSchema)
 
 module.exports = userModel
